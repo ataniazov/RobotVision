@@ -1,3 +1,8 @@
+Ata Niyazov 130201108
+GitHub link'i:
+* https://github.com/ataniazov/RobotVision
+---
+
 # RobotVision (ScaViSLAM)
 
 İşlemler yapılacak işletim sistemi özellikleri:
