@@ -59,18 +59,19 @@ mkdir EXTERNAL
 cd EXTERNAL
 ```
 
-Kütüphane g2o:
+4. g2o'ni indirin, derleyin ve kurun:
 
 ```bash
 git clone git://github.com/strasdat/g2o.git
 cd g2o
 ```
 
-İşlemciniz Intel Core i7/i5/i3 ise:
+5. İşlemciniz Intel Core i7/i5/i3 ise:
 ```bash
 sed -i  '/-march=/s/native/corei7-avx/g' CMakeLists.txt
 ```
 
+```bash
 mkdir svs_build
 cd svs_build
 cmake .. -DCMAKE_INSTALL_PREFIX:PATH=$HOME/svslocal
@@ -79,15 +80,28 @@ make install
 cd ../..
 ```
 
-EXTERNAL dizininin içine opencv (version 2.4.13.2) kütüphanesini indirin ve kurun:
+6. EXTERNAL dizinine opencv (version 2.4.13.2) kütüphanesini indirin ve kurun:
 
 ```
 wget https://github.com/opencv/opencv/archive/2.4.13.2.tar.gz
-tar -xvzf opencv-2.4.13.2.tar.gz
+tar -xvzf 2.4.13.2.tar.gz
 cd opencv-2.4.13.2/
 mkdir svs_build
 cd svs_build
 cmake .. -DCMAKE_INSTALL_PREFIX:PATH=$HOME/svslocal
+make -j4
+make install
+cd ../..
+```
+
+7. EXTERNAL dizinine Pangolin'i kopyalayın ve kurun:
+
+```bash
+git  clone git://github.com/strasdat/Pangolin.git
+cd Pangolin
+mkdir svs_build
+cd svs_build
+cmake .. -DBUILD_SHARED_LIBS=ON -DCMAKE_INSTALL_PREFIX:PATH=$HOME/svslocal
 make -j4
 make install
 cd ../..
