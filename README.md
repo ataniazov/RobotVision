@@ -68,7 +68,7 @@ cd g2o
 
 5. İşlemciniz Intel Core i7/i5/i3 ise:
 ```bash
-sed -i  '/-march=/s/native/corei7-avx/g' CMakeLists.txt
+sed -i '/-march=/s/native/corei7-avx/g' CMakeLists.txt
 ```
 
 ```bash
@@ -99,12 +99,26 @@ cd ../..
 ```bash
 git  clone git://github.com/strasdat/Pangolin.git
 cd Pangolin
+git checkout b66325e
 mkdir svs_build
 cd svs_build
 cmake .. -DBUILD_SHARED_LIBS=ON -DCMAKE_INSTALL_PREFIX:PATH=$HOME/svslocal
 make -j4
 make install
 cd ../..
+```
+
+```bash
+git clone git://github.com/strasdat/Sophus.git
+cd Sophus
+git checkout a621ff
+mkdir svs_build
+cd svs_build
+cmake .. -DCMAKE_INSTALL_PREFIX:PATH=$HOME/svslocal
+make -j4
+make install
+cd ../..
+
 ```
 
 İlgili videolara göz atın:
