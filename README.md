@@ -108,9 +108,8 @@ cd ../..
 ```
 
 İlgili videolara göz atın:
-
-  http://youtu.be/90Rw3qDuWrw
-  http://youtu.be/89CNVQ5azsc
+* http://youtu.be/90Rw3qDuWrw
+* http://youtu.be/89CNVQ5azsc
 
 **Kaynakça:**
 1. https://github.com/strasdat/ScaViSLAM
