@@ -25,14 +25,19 @@ wget http://www.robots.ox.ac.uk/NewCollegeData/Data/FullData/StereoImages/Stereo
 mkdir newcollege
 find . -name "StereoImages*.tgz" -exec tar xvzf '{}' --strip-components=1 -C newcollege/ \;
 ```
+Verilerin daha büyük bir setini indirmek isterseniz, adresindeki dizine bakın:
+http://www.robots.ox.ac.uk/NewCollegeData/index.php?n=Main.Downloads#Full
 
-## Kurulum adımları:
 
-### Bağımlılıklar:
+## Kurulum adımları
+
+1. Bağımlılıkları yükleyin:
 ```bash
-sudo apt-get install libeigen3-dev libsuitesparse-dev freeglut3-dev libglu-dev libglew-dev libboost-all-dev
 sudo apt-get install git cmake gcc-4.6 gcc-4.6-multilib g++-4.6 g++-4.6-multilib libstdc++6-4.6-dev qt4-qmake qt4-default qt4-dev-tools
+sudo apt-get install libeigen3-dev libsuitesparse-dev freeglut3-dev libglu-dev libglew-dev libboost-all-dev
 ```
+
+2. Sürüm çakışmalarını önlemek için kütüphanelerin hepsini yerel olarak ev dizininizde yüklemenizi öneririm, sistem genelinde değil.
 
 ```bash
 mkdir $HOME/svslocal
@@ -46,11 +51,18 @@ mkdir EXTERNAL
 cd EXTERNAL
 ```
 
-Check out and install g2o:
+Kütüphane g2o:
 
 ```bash
 git clone git://github.com/strasdat/g2o.git
 cd g2o
+```
+
+İşlemciniz Intel Core i7,i5,i3 ise:
+```bash
+sed -i  '/-march=/s/native/corei7-avx/g' CMakeLists.txt
+```
+
 mkdir svs_build
 cd svs_build
 cmake .. -DCMAKE_INSTALL_PREFIX:PATH=$HOME/svslocal
@@ -59,7 +71,7 @@ make install
 cd ../..
 ```
 
-Download and install opencv (version 2.4.13.2) inside EXTERNAL:
+EXTERNAL dizininin içine opencv (version 2.4.13.2) kütüphanesini indirin ve kurun:
 
 ```
 wget https://github.com/opencv/opencv/archive/2.4.13.2.tar.gz
