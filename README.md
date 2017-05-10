@@ -82,7 +82,7 @@ cd ../..
 
 6. EXTERNAL dizinine opencv (version 2.4.13.2) kütüphanesini indirin ve kurun:
 
-```
+```bash
 wget https://github.com/opencv/opencv/archive/2.4.13.2.tar.gz
 tar -xvzf 2.4.13.2.tar.gz
 cd opencv-2.4.13.2/
@@ -99,7 +99,7 @@ cd ../..
 ```bash
 git  clone git://github.com/strasdat/Pangolin.git
 cd Pangolin
-git checkout b66325e
+git checkout 7ecfa4c
 mkdir svs_build
 cd svs_build
 cmake .. -DBUILD_SHARED_LIBS=ON -DCMAKE_INSTALL_PREFIX:PATH=$HOME/svslocal
@@ -118,7 +118,36 @@ cmake .. -DCMAKE_INSTALL_PREFIX:PATH=$HOME/svslocal
 make -j4
 make install
 cd ../..
+```
 
+```bash
+git clone git://github.com/strasdat/VisionTools.git
+cd VisionTools
+mkdir svs_build
+cd svs_build
+cmake .. -DCMAKE_PREFIX_PATH:PATH=$HOME/svslocal -DCMAKE_INSTALL_PREFIX:PATH=$HOME/svslocal
+make -j4
+make install
+```
+
+```bash
+cd ../../../
+sed -i '/SET(CUDA_SUPPORT /s/ON)/OFF)/g' CMakeLists.txt
+mkdir svs_build
+cd svs_build
+cmake .. -DCMAKE_PREFIX_PATH:PATH=$HOME/svslocal
+sed -i.bck '$s/$/-lGLU \/usr\/lib\/x86_64-linux-gnu\/libGLU.so.1/' CMakeFiles/stereo_slam.dir/link.txt
+make -j4
+```
+
+```bash
+cd ../data
+ln -s PATH_TO_MY_DATA_DIRECTORY/newcollege/(subdirectory) newcollege
+```
+
+```bash
+cd ../svs_build
+./stereo_slam ../data/newcollege.cfg
 ```
 
 İlgili videolara göz atın:
