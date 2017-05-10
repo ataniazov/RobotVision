@@ -26,7 +26,7 @@ mkdir newcollege
 find . -name "StereoImages*.tgz" -exec tar xvzf '{}' --strip-components=1 -C newcollege/ \;
 ```
 Verilerin daha büyük bir setini indirmek isterseniz, adresindeki dizine bakın:
-http://www.robots.ox.ac.uk/NewCollegeData/index.php?n=Main.Downloads#Full
+* http://www.robots.ox.ac.uk/NewCollegeData/index.php?n=Main.Downloads#Full
 
 
 ## Kurulum adımları
