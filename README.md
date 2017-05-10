@@ -1,5 +1,7 @@
 # RobotVision
 
+İşlemler yapılacak sistem.
+
 ```bash
 lsb_release -a && uname -a
 
