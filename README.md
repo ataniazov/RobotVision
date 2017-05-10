@@ -108,6 +108,8 @@ make install
 cd ../..
 ```
 
+8. EXTERNAL dizinine Sophus'u kopyalayın ve kurun:
+
 ```bash
 git clone git://github.com/strasdat/Sophus.git
 cd Sophus
@@ -119,6 +121,7 @@ make -j4
 make install
 cd ../..
 ```
+9. EXTERNAL dizinine VisionTools'u kopyalayın ve kurun:
 
 ```bash
 git clone git://github.com/strasdat/VisionTools.git
@@ -129,10 +132,12 @@ cmake .. -DCMAKE_PREFIX_PATH:PATH=$HOME/svslocal -DCMAKE_INSTALL_PREFIX:PATH=$HO
 make -j4
 make install
 ```
+10. ScaViSlam'i kurun:
 
 ```bash
 cd ../../../
 sed -i '/SET(CUDA_SUPPORT /s/ON)/OFF)/g' CMakeLists.txt
+sed -i '/boost::/s/filesystem3/filesystem/g' scavislam/create_dictionary.cpp
 mkdir svs_build
 cd svs_build
 cmake .. -DCMAKE_PREFIX_PATH:PATH=$HOME/svslocal
@@ -140,10 +145,17 @@ sed -i.bck '$s/$/-lGLU \/usr\/lib\/x86_64-linux-gnu\/libGLU.so.1/' CMakeFiles/st
 make -j4
 ```
 
+11. "New College" veri setinin tamamen indirildiğinden emin olun.
+ Ardından, "ScaViSLAM / data" içinde bir simge bağlantısı ekleyin:
+
 ```bash
 cd ../data
 ln -s PATH_TO_MY_DATA_DIRECTORY/newcollege/(subdirectory) newcollege
 ```
+
+12. Burada, alt dizin görüntü sırası dizini içeriyor. Daha uzun bir sıralama yapmak isterseniz, dosyaları tek dizin olarak bir arada birleştirin.
+
+13. "New College" resim dizisinde ScaViSLAM'ı çalıştırın:
 
 ```bash
 cd ../svs_build
