@@ -37,7 +37,15 @@ sudo apt-get install git cmake gcc-4.6 gcc-4.6-multilib g++-4.6 g++-4.6-multilib
 sudo apt-get install libeigen3-dev libsuitesparse-dev freeglut3-dev libglu-dev libglew-dev libboost-all-dev
 ```
 
-2. Sürüm çakışmalarını önlemek için kütüphanelerin hepsini yerel olarak ev dizininizde yüklemenizi öneririm, sistem genelinde değil.
+2. Varsayılan gcc ve g++ derleyicisini 4.6 yapınız:
+```bash
+sudo update-alternatives --install /usr/bin/gcc gcc /usr/bin/gcc-4.6 10
+sudo update-alternatives --install /usr/bin/g++ g++ /usr/bin/g++-4.6 10
+sudo update-alternatives --set cc /usr/bin/gcc
+sudo update-alternatives --set c++ /usr/bin/g++
+```
+
+3. Sürüm çakışmalarını önlemek için kütüphanelerin hepsini yerel olarak ev dizininizde yüklemenizi öneririm, sistem genelinde değil.
 
 ```bash
 mkdir $HOME/svslocal
