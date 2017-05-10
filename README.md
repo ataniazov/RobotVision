@@ -58,7 +58,7 @@ git clone git://github.com/strasdat/g2o.git
 cd g2o
 ```
 
-İşlemciniz Intel Core i7,i5,i3 ise:
+İşlemciniz Intel Core i7/i5/i3 ise:
 ```bash
 sed -i  '/-march=/s/native/corei7-avx/g' CMakeLists.txt
 ```
