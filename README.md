@@ -13,7 +13,9 @@ Codename:	trusty
 Linux ubuntu-14.04.5 4.4.0-75-generic #96~14.04.1-Ubuntu SMP Thu Apr 20 11:06:30 UTC 2017 x86_64 x86_64 x86_64 GNU/Linux
 ```
 
-## DataSet
+## Veri seti (Dataset)
+
+Önce örnek resim veri setini indirin. Bu biraz zaman alacak, bu yüzden önce yapınız:
 
 ```bash
 wget http://www.robots.ox.ac.uk/NewCollegeData/Data/FullData/StereoImages/StereoImages_1225720041.455302_to_1225720118.251935.tgz
@@ -24,16 +26,12 @@ mkdir newcollege
 find . -name "StereoImages*.tgz" -exec tar xvzf '{}' --strip-components=1 -C newcollege/ \;
 ```
 
-## Installation steps:
+## Kurulum adımları:
 
-### Dependies:
-Eigen 3.1.4
-https://bitbucket.org/eigen/eigen/get/3.1.4.tar.gz
-
+### Bağımlılıklar:
 ```bash
 sudo apt-get install libeigen3-dev libsuitesparse-dev freeglut3-dev libglu-dev libglew-dev libboost-all-dev
-
-sudo apt-get install git cmake g++ qt4-qmake qt4-default qt4-dev-tools
+sudo apt-get install git cmake gcc-4.6 gcc-4.6-multilib g++-4.6 g++-4.6-multilib libstdc++6-4.6-dev qt4-qmake qt4-default qt4-dev-tools
 ```
 
 ```bash
@@ -75,6 +73,9 @@ make install
 cd ../..
 ```
 
+İlgili videolara göz atın:
+http://youtu.be/90Rw3qDuWrw
+http://youtu.be/89CNVQ5azsc
 
 **Kaynakça:**
 1. https://github.com/strasdat/ScaViSLAM
