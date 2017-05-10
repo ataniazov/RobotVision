@@ -1,4 +1,6 @@
-# RobotVision
+# RobotVision (ScaViSLAM)
+
+
 
 İşlemler yapılacak sistem.
 
@@ -75,4 +77,10 @@ make install
 cd ../..
 ```
 
+
+**Kaynakça:**
+1. https://github.com/strasdat/ScaViSLAM
+2. H. Strasdat, A.J. Davison, J.M.M. Montiel, and K. Konolige 
+"Double Window Optimisation for Constant Time Visual SLAM" 
+Proceedings of the IEEE International Conference on Computer Vision, 2011.
 
