@@ -1,8 +1,6 @@
 # RobotVision (ScaViSLAM)
 
-
-
-İşlemler yapılacak sistem.
+İşlemler yapılacak işletim sistemi özellikleri:
 
 ```bash
 lsb_release -a && uname -a
@@ -12,7 +10,7 @@ Distributor ID:	Ubuntu
 Description:	Ubuntu 14.04.5 LTS
 Release:	14.04
 Codename:	trusty
-Linux skynet 4.4.0-75-generic #96~14.04.1-Ubuntu SMP Thu Apr 20 11:06:30 UTC 2017 x86_64 x86_64 x86_64 GNU/Linux
+Linux ubuntu-14.04.5 4.4.0-75-generic #96~14.04.1-Ubuntu SMP Thu Apr 20 11:06:30 UTC 2017 x86_64 x86_64 x86_64 GNU/Linux
 ```
 
 ## DataSet
@@ -83,4 +81,3 @@ cd ../..
 2. H. Strasdat, A.J. Davison, J.M.M. Montiel, and K. Konolige 
 "Double Window Optimisation for Constant Time Visual SLAM" 
 Proceedings of the IEEE International Conference on Computer Vision, 2011.
-
