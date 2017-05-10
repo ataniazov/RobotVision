@@ -12,10 +12,14 @@ Linux skynet 4.4.0-75-generic #96~14.04.1-Ubuntu SMP Thu Apr 20 11:06:30 UTC 201
 ```
 
 ## DataSet
+
 ```bash
 wget http://www.robots.ox.ac.uk/NewCollegeData/Data/FullData/StereoImages/StereoImages_1225720041.455302_to_1225720118.251935.tgz
 wget http://www.robots.ox.ac.uk/NewCollegeData/Data/FullData/StereoImages/StereoImages_1225720118.301927_to_1225720193.248630.tgz 
 wget http://www.robots.ox.ac.uk/NewCollegeData/Data/FullData/StereoImages/StereoImages_1225720193.298630_to_1225720268.945303.tgz
+
+mkdir newcollege
+find . -name "StereoImages*.tgz" -exec tar xvzf '{}' --strip-components=1 -C newcollege/ \;
 ```
 
 ## Installation steps:
