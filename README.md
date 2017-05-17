@@ -104,7 +104,7 @@ make install
 cd ../..
 ```
 
-![g2o](https://www.github.com/ataniazov/RobotVision/images/g2o.png "g2o derlenmesi")
+![g2o](https://github.com/ataniazov/RobotVision/blob/master/images/g2o.png "g2o derlenmesi")
 
 8. EXTERNAL dizinine opencv (version 2.4.13.2) kütüphanesini indirin ve kurun:
 
@@ -120,7 +120,7 @@ make install
 cd ../..
 ```
 
-![OpenCV](https://www.github.com/ataniazov/RobotVision/images/opencv.png "OpenCV derlenmesi")
+![OpenCV](https://github.com/ataniazov/RobotVision/blob/master/images/opencv.png "OpenCV derlenmesi")
 
 9. EXTERNAL dizinine Pangolin'i kopyalayın ve kurun:
 
@@ -136,7 +136,7 @@ make install
 cd ../..
 ```
 
-![Pangolin](https://www.github.com/ataniazov/RobotVision/images/pangolin.png "Pangolin derlenmesi")
+![Pangolin](https://github.com/ataniazov/RobotVision/blob/master/images/pangolin.png "Pangolin derlenmesi")
 
 10. EXTERNAL dizinine Sophus'u kopyalayın ve kurun:
 
@@ -152,7 +152,7 @@ make install
 cd ../..
 ```
 
-![Sophus](https://www.github.com/ataniazov/RobotVision/images/sophus.png "Sophus derlenmesi")
+![Sophus](https://github.com/ataniazov/RobotVision/blob/master/images/sophus.png "Sophus derlenmesi")
 
 11. EXTERNAL dizinine VisionTools'u kopyalayın ve kurun:
 
@@ -166,7 +166,7 @@ make -j4
 make install
 ```
 
-![VisionTools](https://www.github.com/ataniazov/RobotVision/images/visiontools.png "VisionTools derlenmesi")
+![VisionTools](https://github.com/ataniazov/RobotVision/blob/master/images/visiontools.png "VisionTools derlenmesi")
 
 12. "ScaViSLAM" ana proje klasörüne gidin:
 
@@ -195,7 +195,7 @@ cmake .. -DCMAKE_PREFIX_PATH:PATH=$HOME/svslocal
 sed -i.bck '$s/$/-lGLU \/usr\/lib\/x86_64-linux-gnu\/libGLU.so.1/' CMakeFiles/stereo_slam.dir/link.txt
 make -j4
 ```
-![ScaViSLAM](https://www.github.com/ataniazov/RobotVision/images/scavislam.png "ScaViSLAM derlenmesi")
+![ScaViSLAM](https://github.com/ataniazov/RobotVision/blob/master/images/scavislam.png "ScaViSLAM derlenmesi")
 
 16. "New College" veri setinin tamamen indirildiğinden emin olun.
  Ardından, "ScaViSLAM / data" içinde bir simge bağlantısı ekleyin:
@@ -214,7 +214,7 @@ cd ../svs_build
 ./stereo_slam ../data/newcollege.cfg
 ```
 
-![Error](https://www.github.com/ataniazov/RobotVision/images/error.png "Çalıştırma hatası")
+![Error](https://github.com/ataniazov/RobotVision/blob/master/images/error.png "Çalıştırma hatası")
 
 İlgili videolara göz atın:
 * http://youtu.be/90Rw3qDuWrw
