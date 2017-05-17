@@ -213,14 +213,25 @@ ln -s PATH_TO_MY_DATA_DIRECTORY/newcollege/(subdirectory) newcollege
 cd ../svs_build
 ./stereo_slam ../data/newcollege.cfg
 ```
-
 ![Error](https://github.com/ataniazov/RobotVision/blob/master/images/error.png "Çalıştırma hatası")
+
+### Projenin makalesinin içerisindeki algoritmaların (matematiğinin) kodlardaki karşılıklarının bulunması.
+
+Makalenin içindeki ana algoritmanın gerçekleştirildiği dosyalar:
+
+* dense_tracking.h
+* dense_tracking.cpp
+* gpu/dense_tracking.cu
+* gpu/dense_tracking.cuh
+
+İlk dosyada projede kullanılan fonkiyonların tanımlanması (header file), ikinci dosya ise o fonksiyonların işlevi kodlanmıştır.
+Son iki dosya yukarıda tanımlanan dosyalar ile aynı işlevi yapıyorlar, tek farkı bu kodlar bilgisayarın ana işlemcisinde değil de, Nvidia şirketinin icat ettiği GeForce veya Quardro ekran kartlarının CUDA teknolocisini kullanarak daha verimli ve hızlı şekilde işlemleri yapmaktır.
 
 İlgili videolara göz atın:
 * http://youtu.be/90Rw3qDuWrw
 * http://youtu.be/89CNVQ5azsc
 
-**Kaynakça:**
+### Kaynakça:
 1. https://github.com/strasdat/ScaViSLAM
 2. H. Strasdat, A.J. Davison, J.M.M. Montiel, and K. Konolige 
 "Double Window Optimisation for Constant Time Visual SLAM" 
