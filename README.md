@@ -5,6 +5,18 @@ GitHub link'i:
 
 # RobotVision (ScaViSLAM)
 
+Bu görsel SLAM için genel ve ölçeklenebilir bir kütüphane. Bu kütüphane ICCV belgesinde anlatılan "Çift Görüntü Optimizasyonu" (Double Window Optimization) yöntemleri gerçeklemektedir:
+* H. Strasdat, A.J. Davison, J.M.M. Montiel, and K. Konolige 
+"Double Window Optimisation for Constant Time Visual SLAM" 
+Proceedings of the IEEE International Conference on Computer Vision, 2011.
+
+Şu anda kalibre edilmiş stereo görüntü verileri ve RGB-D kameraları destekliyor.
+Monoküler SLAM desteklenmiyor (henüz).
+
+Bu kütüphane geliştirme aşamasındaki araştırma düzeyinde bir yazılımdır.
+Bu bir piyasada kullanılabilecek sürüm değildir. Herhalde özellikler eklenecek,
+hatalar giderilecek ve API ileride değişecektir.
+
 İşlemler yapılacak işletim sistemi özellikleri:
 
 ```bash
@@ -54,6 +66,11 @@ sudo update-alternatives --set c++ /usr/bin/g++
 
 ```bash
 mkdir $HOME/svslocal
+```
+
+4. ScaViSLAM kaynak kodlarını GitHub havuzundan indirin/klonlayın.
+
+```bash
 mkdir $HOME/source
 cd $HOME/source
 
@@ -64,17 +81,19 @@ mkdir EXTERNAL
 cd EXTERNAL
 ```
 
-4. g2o'ni indirin, derleyin ve kurun:
+5. g2o'ni indirin:
 
 ```bash
 git clone git://github.com/strasdat/g2o.git
 cd g2o
 ```
 
-5. İşlemciniz Intel Core i7/i5/i3 ise:
+6. İşlemciniz Intel Core i7/i5/i3 ise CMakeLists.txt aşagıdaki ayarı yapınız:
 ```bash
 sed -i '/-march=/s/native/corei7-avx/g' CMakeLists.txt
 ```
+
+7. Ardından derleme ve kurma işlemini yapınız:
 
 ```bash
 mkdir svs_build
@@ -85,7 +104,7 @@ make install
 cd ../..
 ```
 
-6. EXTERNAL dizinine opencv (version 2.4.13.2) kütüphanesini indirin ve kurun:
+8. EXTERNAL dizinine opencv (version 2.4.13.2) kütüphanesini indirin ve kurun:
 
 ```bash
 wget https://github.com/opencv/opencv/archive/2.4.13.2.tar.gz
@@ -99,7 +118,7 @@ make install
 cd ../..
 ```
 
-7. EXTERNAL dizinine Pangolin'i kopyalayın ve kurun:
+9. EXTERNAL dizinine Pangolin'i kopyalayın ve kurun:
 
 ```bash
 git  clone git://github.com/strasdat/Pangolin.git
@@ -113,7 +132,7 @@ make install
 cd ../..
 ```
 
-8. EXTERNAL dizinine Sophus'u kopyalayın ve kurun:
+10. EXTERNAL dizinine Sophus'u kopyalayın ve kurun:
 
 ```bash
 git clone git://github.com/strasdat/Sophus.git
@@ -126,7 +145,8 @@ make -j4
 make install
 cd ../..
 ```
-9. EXTERNAL dizinine VisionTools'u kopyalayın ve kurun:
+
+11. EXTERNAL dizinine VisionTools'u kopyalayın ve kurun:
 
 ```bash
 git clone git://github.com/strasdat/VisionTools.git
@@ -137,12 +157,28 @@ cmake .. -DCMAKE_PREFIX_PATH:PATH=$HOME/svslocal -DCMAKE_INSTALL_PREFIX:PATH=$HO
 make -j4
 make install
 ```
-10. ScaViSlam'i kurun:
+
+12. "ScaViSLAM" ana proje klasörüne gidin:
 
 ```bash
 cd ../../../
+```
+
+13. ScaViSLAM'i CUDA desteği olmaksızın derlemek isterseniz, CMakeLists.txt cmake ayarlama dosyasında CUDA_SUPPORT OFF olarak değiştirin.
+
+```bash
 sed -i '/SET(CUDA_SUPPORT /s/ON)/OFF)/g' CMakeLists.txt
+```
+
+14. Boost kütüphanesinin eski "filesystem3" namespace'ini yeni "filesystem" namespace'i ile değiştiriniz:
+
+```bash
 sed -i '/boost::/s/filesystem3/filesystem/g' scavislam/create_dictionary.cpp
+```
+
+15. ScaViSLAM'i kurun:
+
+```bash
 mkdir svs_build
 cd svs_build
 cmake .. -DCMAKE_PREFIX_PATH:PATH=$HOME/svslocal
@@ -150,7 +186,7 @@ sed -i.bck '$s/$/-lGLU \/usr\/lib\/x86_64-linux-gnu\/libGLU.so.1/' CMakeFiles/st
 make -j4
 ```
 
-11. "New College" veri setinin tamamen indirildiğinden emin olun.
+16. "New College" veri setinin tamamen indirildiğinden emin olun.
  Ardından, "ScaViSLAM / data" içinde bir simge bağlantısı ekleyin:
 
 ```bash
@@ -158,9 +194,9 @@ cd ../data
 ln -s PATH_TO_MY_DATA_DIRECTORY/newcollege/(subdirectory) newcollege
 ```
 
-12. Burada, alt dizin görüntü sırası dizini içeriyor. Daha uzun bir sıralama yapmak isterseniz, dosyaları tek dizin olarak bir arada birleştirin.
+17. Burada, alt dizin görüntü sırası dizini içeriyor. Daha uzun bir sıralama yapmak isterseniz, dosyaları tek dizin olarak bir arada birleştirin.
 
-13. "New College" resim dizisinde ScaViSLAM'ı çalıştırın:
+18. "New College" resim dizisinde ScaViSLAM'ı çalıştırın:
 
 ```bash
 cd ../svs_build
